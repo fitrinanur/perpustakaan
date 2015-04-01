@@ -39,10 +39,10 @@ class M_anggota extends CI_Model
 		$this->db->where($this->primary,$kode);
 		$this->db->delete($this->table);
 	}
-	function search($keyword)
+	function search($cari)
 	{
-		$this->db->like($this->primary,$keyword);
-		$this->db->or_like("nama",$keyword);
+		$this->db->like($this->primary,$cari);
+		$this->db->or_like("nama",$cari);
 		return $this->db->get($this->table);
 	}
 }

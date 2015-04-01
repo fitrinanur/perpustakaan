@@ -35,7 +35,7 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav">
 			        <li class="active"><a href="#">Buku</a></li>
-			        <li><a href="#">Anggota</a></li>
+			        <li><a href="<?php echo base_url('index');?>">Anggota</a></li>
 			        <li><a href="#">Peminjaman</a></li>
 			        <li><a href="#">Pengembalian</a></li>
 			        <li class="dropdown">
