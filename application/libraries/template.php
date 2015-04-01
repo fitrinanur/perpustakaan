@@ -1,14 +1,20 @@
-<?php
-class Template{
-    protected $_CI;
-    function __construct(){
-        $this->_CI=&get_instance();
-    }
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Template {
+        var $template_data = array();
+        
+        function set($name, $value)
+        {
+            $this->template_data[$name] = $value;
+        }
     
-    function display($template,$data=null){
-        $data['_content']=$this->_CI->load->view($template,$data,true);
-        $data['_header']=$this->_CI->load->view('template/header',$data,true);
-        $data['_sidebar']=$this->_CI->load->view('template/sidebar',$data,true);
-        $this->_CI->load->view('/template.php',$data);
-    }
+        function load($template = '', $view = '' , $view_data = array() ,$var_load='contents' , $return = FALSE)
+        {               
+            $this->CI =& get_instance();
+            $this->set($var_load, $this->CI->load->view($view, $view_data, TRUE));          
+            return $this->CI->load->view($template, $this->template_data, $return);
+        }
 }
+
+/* End of file Template.php */
+/* Location: ./system/application/libraries/Template.php */
