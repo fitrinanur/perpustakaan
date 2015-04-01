@@ -7,7 +7,7 @@ class M_buku extends CI_Model{
 		if (empty($order_column) || empty($order_type))
 			$this->db->order_by($this->primary,'asc');
 		else
-			$this->db->order_type($order_column,$order_type);
+			$this->db->order_by($order_column,$order_type);
 			return $this->db->get($this->table,$limit,$offset);
 	}
 
